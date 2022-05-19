@@ -1,0 +1,158 @@
+- var link = 'plyr-player'
+- var title = 'Plyr 播放器使用筆記：中文介面、取值、事件、改樣式'
+- var description = 'Plyr 播放器使用筆記：中文介面、取值、事件、改樣式'
+
+<!DOCTYPE html>
+html(lang="zh-TW", data-theme="dark")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title #{title} - August - Let's Write
+
+    link(rel="canonical", href=`https://www.letswrite.tw/${link}/`)
+    meta(property="og:url", content=`https://letswritetw.github.io/letswrite-${link}/`)
+
+    meta(property="fb:app_id", content="911000986339138")
+    meta(property="og:type", content="website")
+
+    meta(property="og:site_name", content="Let's Write")
+    meta(property="og:title", content=`${title} - Augustus - Let's Write`)
+    meta(itemprop="name", content=`${title} - Augustus - Let's Write`)
+
+    meta(name="description", content=description)
+    meta(property="og:description", content=description)
+    meta(itemprop="description", content=description)
+
+    meta(itemprop="image", content=`https://letswritetw.github.io/letswrite-${link}/fb.jpg`)
+    meta(property="og:image", content=`https://letswritetw.github.io/letswrite-${link}/fb.jpg`)
+    meta(property="og:image:width", content="1200")
+    meta(property="og:image:height", content="630")
+    meta(property="og:image:alt", content=title)
+
+    link(rel="shortcut icon", href="https://letswritetw.github.io/letswritetw/dist/img/logo_512.png")
+
+    //- css
+    link(rel="stylesheet", href="https://unpkg.com/bamboo.css/dist/dark.min.css", media="screen")
+
+    //- Plyr
+    link(rel="stylesheet", href="https://cdn.plyr.io/3.7.2/plyr.css", media="screen")
+
+    link(rel="stylesheet", href="dist/style.min.css", media="screen")
+
+    // Google Tag Manager
+    script.
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-PGQ9WQT');
+  body
+
+    // Google Tag Manager (noscript)
+    noscript
+      iframe(src="https://www.googletagmanager.com/ns.html?id=GTM-PGQ9WQT", height="0", width="0", style="display:none;visibility:hidden")
+
+    .container
+
+      h1=title
+      
+      hr
+      
+      // Plyr HTML5 Video
+      section.mb-5
+
+        h2 HTML5 Video
+        p 字幕 + 中文 + Controls 全開
+
+        video#player-video(playsinline, controls, data-poster="https://picsum.photos/674/379")
+          source(src="dist/sample.mp4" type="video/mp4")
+          track(kind="captions", label="中文字幕", src="dist/captions-zhTW.vtt", srclang="zh", default)
+          track(kind="captions", label="English captions", src="dist/captions-en.vtt", srclang="en")
+      
+      hr
+
+      // Plyr HTML5 Audio
+      section.mb-5
+
+        h2 HTML5 Audio
+
+        audio#player-audio(controls)
+          source(src="dist/sample.mp3", type="audio/mp3")
+      
+      hr
+
+      // Plyr Youtube
+      section.mb-5
+
+        h2 Youtube
+
+        // .plyr__video-embed：影片維持 16:9
+        #player-youtube.plyr__video-embed
+          iframe(src="https://www.youtube.com/embed/YBePFPrlYgg", allowfullscreen, allowtransparency, allow="autoplay")
+      
+      hr
+
+      // Plyr Vimeo
+      section.mb-5
+
+        h2 Vimeo
+
+        #player-vimeo.plyr__video-embed
+          iframe(src="https://player.vimeo.com/video/708244501", allowfullscreen, allowtransparency, allow="autoplay")
+      
+      hr
+
+      // Plyr 改變樣式
+      style.
+        .player-letswrite {
+          --plyr-color-main: #42A6F7;
+          --plyr-video-control-background-hover: #167FFF;
+        }
+        .player-pink {
+          --plyr-color-main: #E91E63;
+          --plyr-video-control-background-hover: #C2185B;
+        }
+        .player-teal {
+          --plyr-color-main: #009688;
+          --plyr-video-control-background-hover: #00796B;
+        }
+        .player-indigo {
+          --plyr-color-main: #3F51B5;
+          --plyr-video-control-background-hover: #303F9F;
+        }
+      section#theme-target.mb-5.player-letswrite
+
+        h2 HTML5 Video Custom
+
+        video#player-custom(playsinline, controls)
+          source(src="dist/sample.mp4" type="video/mp4")
+
+      // 切換 theme
+      h5 切換 Theme
+
+      div.plyr-theme
+        button(type="button", data-theme="letswrite", style="background-color: #42A6F7") Let's Write
+        button(type="button", data-theme="pink", style="background-color: #E91E63") Pink
+        button(type="button", data-theme="teal", style="background-color: #009688") Teal
+        button(type="button", data-theme="indigo", style="background-color: #3F51B5") Indigo
+      
+      h5 Console 顯示在這
+
+      textarea#textarea(rows="2", disabled)
+      
+      h6 API 文件：
+        a(href="https://github.com/sampotts/plyr/blob/master/README.md", target="_blank") Plry GitHub
+        
+      hr
+
+      h6 範例影片來源：
+        a(href="https://pixabay.com/videos/sea-iceland-ocean-water-sky-33194/", target="_blank") https://pixabay.com/videos/sea-iceland-ocean-water-sky-33194/
+        
+      h6 範例音檔來源：
+        a(href="https://pixabay.com/music/solo-piano-waves-and-tears-sad-piano-music-with-calm-ocean-waves-8164/", target="_blank") https://pixabay.com/music/solo-piano-waves-and-tears-sad-piano-music-with-calm-ocean-waves-8164/
+      
+      hr
+
+    script(src="https://cdn.plyr.io/3.7.2/plyr.js")
+    script(src="dist/main.min.js")
