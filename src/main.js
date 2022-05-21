@@ -84,6 +84,12 @@ document.addEventListener('DOMContentLoaded', e => {
   // Youtube
   const playerYoutube = new Plyr('#player-youtube');
 
+  playerYoutube.on('statechange', event => {
+    let typeCode = event.detail.code;
+    alert('typeCode: ' + typeCode);
+    // -1: Unstarted, 0: Ended, 1: Playing, 2: Paused, 3: Buffering, 5: Video cued
+  })
+
   // Vimeo
   const playerVimeo = new Plyr('#player-vimeo');
 
