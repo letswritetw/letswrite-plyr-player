@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', e => {
 
   // HTML5 Video + 字幕 + 中文 + 控製項全開
   const playerVideo = new Plyr('#player-video', {
-    captions: { active: true, language: 'auto', update: false },
+    captions: { active: true, language: 'auto', update: true },
     i18n: {
       restart: '重播',
       rewind: '倒帶 {seektime} 秒',
@@ -57,8 +57,25 @@ document.addEventListener('DOMContentLoaded', e => {
       'fullscreen', // Toggle fullscreen
     ],
     tooltips: { controls: true, seek: true },
-    quality: { default: 1080, options: [1080, 720, 576, 480, 360, 240] },
-    loop: { active: true }
+    quality: { default: 720, options: [1080, 720, 480] },
+    loop: { active: true },
+    markers: {
+      enabled: true,
+      points: [
+        {
+          time: 10,
+          label: '段落標記 Demo1',
+        },
+        {
+          time: 20,
+          label: '段落標記 Demo2',
+        },
+        {
+          time: 30,
+          label: '段落標記之 <strong>可以用粗體字</strong>',
+        },
+      ],
+    },
   });
 
   // HTML5 Audio

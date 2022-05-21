@@ -4,22 +4,22 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Plyr 播放器使用筆記：中文介面、取值、事件、改樣式 - August - Let's Write</title>
+    <title>Plyr 播放器使用筆記：控制項、取值、事件、改樣式、外部平台影片 - August - Let's Write</title>
     <link rel="canonical" href="https://www.letswrite.tw/plyr-player/"/>
     <meta property="og:url" content="https://letswritetw.github.io/letswrite-plyr-player/"/>
     <meta property="fb:app_id" content="911000986339138"/>
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="Let's Write"/>
-    <meta property="og:title" content="Plyr 播放器使用筆記：中文介面、取值、事件、改樣式 - Augustus - Let's Write"/>
-    <meta itemprop="name" content="Plyr 播放器使用筆記：中文介面、取值、事件、改樣式 - Augustus - Let's Write"/>
-    <meta name="description" content="Plyr 播放器使用筆記：中文介面、取值、事件、改樣式"/>
-    <meta property="og:description" content="Plyr 播放器使用筆記：中文介面、取值、事件、改樣式"/>
-    <meta itemprop="description" content="Plyr 播放器使用筆記：中文介面、取值、事件、改樣式"/>
+    <meta property="og:title" content="Plyr 播放器使用筆記：控制項、取值、事件、改樣式、外部平台影片 - Augustus - Let's Write"/>
+    <meta itemprop="name" content="Plyr 播放器使用筆記：控制項、取值、事件、改樣式、外部平台影片 - Augustus - Let's Write"/>
+    <meta name="description" content="Plyr 播放器使用筆記：控制項、取值、事件、改樣式、外部平台影片"/>
+    <meta property="og:description" content="Plyr 播放器使用筆記：控制項、取值、事件、改樣式、外部平台影片"/>
+    <meta itemprop="description" content="Plyr 播放器使用筆記：控制項、取值、事件、改樣式、外部平台影片"/>
     <meta itemprop="image" content="https://letswritetw.github.io/letswrite-plyr-player/fb.jpg"/>
     <meta property="og:image" content="https://letswritetw.github.io/letswrite-plyr-player/fb.jpg"/>
     <meta property="og:image:width" content="1200"/>
     <meta property="og:image:height" content="630"/>
-    <meta property="og:image:alt" content="Plyr 播放器使用筆記：中文介面、取值、事件、改樣式"/>
+    <meta property="og:image:alt" content="Plyr 播放器使用筆記：控制項、取值、事件、改樣式、外部平台影片"/>
     <link rel="shortcut icon" href="https://letswritetw.github.io/letswritetw/dist/img/logo_512.png"/>
     <link rel="stylesheet" href="https://unpkg.com/bamboo.css/dist/dark.min.css" media="screen"/>
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css" media="screen"/>
@@ -33,20 +33,22 @@
       })(window,document,'script','dataLayer','GTM-PGQ9WQT');
     </script>
   </head>
-  <body>
+  <body style="max-width: 70vw">
     <!-- Google Tag Manager (noscript)-->
     <noscript>
       <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGQ9WQT" height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript>
     <div class="container">
-      <h1>Plyr 播放器使用筆記：中文介面、取值、事件、改樣式</h1>
+      <h1>Plyr 播放器使用筆記：控制項、取值、事件、改樣式、外部平台影片</h1>
       <hr/>
       <!-- Plyr HTML5 Video-->
       <section class="mb-5">
         <h2>HTML5 Video</h2>
         <p>字幕 + 中文 + Controls 全開</p>
-        <video id="player-video" playsinline="playsinline" controls="controls" data-poster="https://picsum.photos/674/379">
-          <source src="dist/sample.mp4" type="video/mp4"/>
+        <video id="player-video" playsinline="playsinline" controls="controls" data-poster="https://picsum.photos/id/1041/674/379">
+          <source src="dist/sample-1080.mp4" type="video/mp4" size="1080"/>
+          <source src="dist/sample-720.mp4" type="video/mp4" size="720" default="default"/>
+          <source src="dist/sample-480.mp4" type="video/mp4" size="480"/>
           <track kind="captions" label="中文字幕" src="dist/captions-zhTW.vtt" srclang="zh" default="default"/>
           <track kind="captions" label="English captions" src="dist/captions-en.vtt" srclang="en"/>
         </video>
@@ -99,7 +101,7 @@
       <section class="mb-5 player-letswrite" id="theme-target">
         <h2>HTML5 Video Custom</h2>
         <video id="player-custom" playsinline="playsinline" controls="controls">
-          <source src="dist/sample.mp4" type="video/mp4"/>
+          <source src="dist/sample-720.mp4" type="video/mp4" default="default"/>
         </video>
       </section>
       <!-- 切換 theme-->

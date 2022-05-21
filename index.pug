@@ -1,6 +1,6 @@
 - var link = 'plyr-player'
-- var title = 'Plyr 播放器使用筆記：中文介面、取值、事件、改樣式'
-- var description = 'Plyr 播放器使用筆記：中文介面、取值、事件、改樣式'
+- var title = 'Plyr 播放器使用筆記：控制項、取值、事件、改樣式、外部平台影片'
+- var description = 'Plyr 播放器使用筆記：控制項、取值、事件、改樣式、外部平台影片'
 
 <!DOCTYPE html>
 html(lang="zh-TW", data-theme="dark")
@@ -47,7 +47,7 @@ html(lang="zh-TW", data-theme="dark")
       j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','GTM-PGQ9WQT');
-  body
+  body(style="max-width: 70vw")
 
     // Google Tag Manager (noscript)
     noscript
@@ -65,8 +65,10 @@ html(lang="zh-TW", data-theme="dark")
         h2 HTML5 Video
         p 字幕 + 中文 + Controls 全開
 
-        video#player-video(playsinline, controls, data-poster="https://picsum.photos/674/379")
-          source(src="dist/sample.mp4" type="video/mp4")
+        video#player-video(playsinline, controls, data-poster="https://picsum.photos/id/1041/674/379")
+          source(src="dist/sample-1080.mp4", type="video/mp4", size="1080")
+          source(src="dist/sample-720.mp4", type="video/mp4", size="720", default)
+          source(src="dist/sample-480.mp4", type="video/mp4", size="480")
           track(kind="captions", label="中文字幕", src="dist/captions-zhTW.vtt", srclang="zh", default)
           track(kind="captions", label="English captions", src="dist/captions-en.vtt", srclang="en")
       
@@ -126,7 +128,7 @@ html(lang="zh-TW", data-theme="dark")
         h2 HTML5 Video Custom
 
         video#player-custom(playsinline, controls)
-          source(src="dist/sample.mp4" type="video/mp4")
+          source(src="dist/sample-720.mp4", type="video/mp4", default)
 
       // 切換 theme
       h5 切換 Theme
